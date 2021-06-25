@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 import io.github.jwgibanez.catfacts.database.model.CatFact;
 import io.github.jwgibanez.catfacts.databinding.ListItemBinding;
 import io.github.jwgibanez.catfacts.service.PhotoService;
@@ -27,6 +29,8 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
     public void bind(CatFact fact, CatsViewModel viewModel) {
         binding.fact.setText(fact.fact != null ? fact.fact : "");
         binding.progressBar.setVisibility(View.VISIBLE);
+        binding.date.setText(
+                String.format(Locale.US, "Created on %s", fact.creationDate.toLocaleString()));
         Picasso.get().load(PhotoService.HOST + fact.url).into(
                 binding.imageView, new Callback() {
                     @Override
