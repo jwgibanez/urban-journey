@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cat Facts</string>
+    <string name="action_add">Add</string>
+    <string name="empty_message">Cats facts are fun! Click add now.</string>
+</resources>
